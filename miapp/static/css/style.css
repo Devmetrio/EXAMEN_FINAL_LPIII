@@ -1,0 +1,131 @@
+/* style.css */
+
+/* Establece un fondo con degradado */
+body {
+    background: linear-gradient(135deg, #1d1d1d, #4b006e, #003f5e);
+    background-size: cover;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Estilo del encabezado */
+.topbar {
+    background-color: transparent;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topbar-inner__signin {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #4b006e, #003f5e);
+    border-radius: 10px;
+}
+
+.topbar-inner__signin:hover {
+    color: #ddd;
+    background: linear-gradient(135deg, #003f5e, #4b006e);
+}
+
+/* Estilo para el contenido principal */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+h1, h2 {
+    margin: 0;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+}
+
+h2 {
+    font-size: 2em;
+    color: #bbb;
+    margin-bottom: 1em;
+}
+
+p {
+    color: #bbb;
+    font-size: 1.2em;
+    max-width: 600px;
+    margin-bottom: 2em;
+}
+
+/* Estilo para los botones */
+.button {
+    background-color: #5a4be7;
+    color: #fff;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+    margin: 10px;
+}
+
+.button:hover {
+    background-color: #4834d4;
+}
+
+/* Estilo para el pie de página */
+.footer {
+    background-color: transparent;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer a {
+    color: #bbb;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #fff;
+}
+
+/* Estilo para el botón de ayuda */
+.help-button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.help-button:hover {
+    background-color: #388E3C;
+}
+
+/* Estilo para el logo en el botón de ayuda */
+.topbar-inner__logo {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.topbar-inner__logo img.logo {
+    width: 80px; /* Ajusta el tamaño del logo según sea necesario */
+    height: auto;
+    display: block;
+}
