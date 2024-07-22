@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<form action="/registrar_persona/" method="POST" class="form-container" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h2 class="form-title">Ingresar Nuevo Persona</h2>
+    <table class="form-table">
+        <tr class="form-row">
+            <td><label for="nombre" class="form-label">Nombre:</label></td>
+            <td><input type="text" id="nombre" name="nombre" minlength="1" maxlength="10" required class="form-input"></td>
+        </tr>
+        <tr class="form-row">
+            <td><label for="apellidos" class="form-label">Apellidos:</label></td>
+            <td><input type="text" id="apellidos" name="apellidos" minlength="1" maxlength="50" required class="form-input"></td>
+        </tr>
+        <tr class="form-row">
+            <td><label for="sexo" class="form-label">Sexo:</label></td>
+            <td><select id="sexo" name="sexo">
+                <option value="Hombre">Hombre</option>
+                <option value="Mujer">Mujer</option>
+            </select></td>
+        </tr>
+    </table>
+    <button type="submit" class="form-button">Guardar Persona</button>
+</form>
+{% endblock %}

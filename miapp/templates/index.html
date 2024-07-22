@@ -1,5 +1,32 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<h1>PERSONAS</h1>
+<h2>Lista de Personas</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Sexo</th>
+            <th>Registrado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in persona %}
+        <tr>
+            <td>{{ p.nombre }}</td>
+            <td>{{ p.apellidos }}</td>
+            <td>{{ p.sexo }}</td>
+            <td>{{ p.fecha_de_registro }}</td>
+            <td>
+                <form action="{% url 'eliminar_persona' p.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
