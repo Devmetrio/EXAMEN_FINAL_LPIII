@@ -1,26 +1,29 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<form action="/registrar_persona/" method="POST" class="form-container" enctype="multipart/form-data">
+<form action="{% if persona %}{% url 'editar_persona' persona.id %}{% else %}{% url 'registro_persona' %}{% endif %}" method="POST" class="form-container" enctype="multipart/form-data">
     {% csrf_token %}
-    <h2 class="form-title">Ingresar Nuevo Persona</h2>
+    <h2 class="form-title">{% if persona %}Editar Persona{% else %}Ingresar Nueva Persona{% endif %}</h2>
     <table class="form-table">
         <tr class="form-row">
             <td><label for="nombre" class="form-label">Nombre:</label></td>
-            <td><input type="text" id="nombre" name="nombre" minlength="1" maxlength="10" required class="form-input"></td>
+            <td><input type="text" id="nombre" name="nombre" value="{{ persona.nombre|default_if_none:'' }}" minlength="1" maxlength="10" required class="form-input"></td>
         </tr>
         <tr class="form-row">
             <td><label for="apellidos" class="form-label">Apellidos:</label></td>
-            <td><input type="text" id="apellidos" name="apellidos" minlength="1" maxlength="50" required class="form-input"></td>
+            <td><input type="text" id="apellidos" name="apellidos" value="{{ persona.apellidos|default_if_none:'' }}" minlength="1" maxlength="50" required class="form-input"></td>
         </tr>
         <tr class="form-row">
             <td><label for="sexo" class="form-label">Sexo:</label></td>
-            <td><select id="sexo" name="sexo">
-                <option value="Hombre">Hombre</option>
-                <option value="Mujer">Mujer</option>
-            </select></td>
+            <td>
+                <select id="sexo" name="sexo" class="form-input">
+                    <option value="Hombre" {% if persona.sexo == 'Hombre' %}selected{% endif %}>Hombre</option>
+                    <option value="Mujer" {% if persona.sexo == 'Mujer' %}selected{% endif %}>Mujer</option>
+                </select>
+            </td>
         </tr>
     </table>
-    <button type="submit" class="form-button">Guardar Persona</button>
+    <button type="submit" class="form-button btn btn-success mt-5">{% if persona %}Actualizar Persona{% else %}Guardar Persona{% endif %}</button>
 </form>
+<a href="{% url 'personas' %}" class="btn btn-secondary mt-2">Cancelar</a>
 {% endblock %}

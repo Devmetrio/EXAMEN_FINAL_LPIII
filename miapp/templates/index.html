@@ -2,7 +2,7 @@
 
 {% block content %}
 <h2>Lista de Personas</h2>
-<table class="table table-striped">
+<table class="table table-dark table-striped lista">
     <thead>
         <tr>
             <th>Nombre</th>
@@ -20,7 +20,8 @@
             <td>{{ p.sexo }}</td>
             <td>{{ p.fecha_de_registro }}</td>
             <td>
-                <form action="{% url 'eliminar_persona' p.id %}" method="post">
+                <a href="{% url 'editar_persona' p.id %}" class="btn btn-primary">Editar</a>
+                <form action="{% url 'eliminar_persona' p.id %}" method="post" style="display:inline;">
                     {% csrf_token %}
                     <button type="submit" class="btn btn-danger">Eliminar</button>
                 </form>
